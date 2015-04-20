@@ -1,0 +1,62 @@
+GLPK 4.52 - SENSITIVITY ANALYSIS REPORT                                                                         Page   1
+
+Problem:    parteb
+Objective:  z = 2600000 (MAXimum)
+
+   No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 z            BS       2.6e+06      -2.6e+06          -Inf        2.6e+06      -1.00000        .      viasCubiertas
+                                            .               +Inf        2.6e+06          +Inf          +Inf
+
+     2 minimoTrenesAComprar
+                    BS      40.00000        .           40.00000         .        -2500.00000       2.5e+06 presupuesto
+                                            .               +Inf       50.00000    2000.00000      2.68e+06 coberturaTrenes
+
+     3 viasCubiertas
+                    NL        .             .             .         -4500.00000          -Inf     2.625e+06 kms_vias_a_construir
+                                          -5.55556          +Inf         .            5.55556       2.6e+06 minimoTrenesAComprar
+
+     4 coberturaTrenes
+                    NL        .             .             .              .               -Inf       2.6e+06 minimoTrenesAComprar
+                                          -4.44444          +Inf     4500.00000       4.44444      2.58e+06 kms_vias_a_construir
+
+     5 viasTotales  NS   48000.00000        .        48000.00000    48000.00000          -Inf       2.6e+06 minimoTrenesAComprar
+                                           5.55556   48000.00000    52500.00000          +Inf     2.625e+06 kms_vias_a_construir
+
+     6 trenesTotales
+                    NS    1000.00000        .         1000.00000      910.00000          -Inf       2.4e+06 kms_vias_a_construir
+                                        2222.22222    1000.00000     1000.00000          +Inf       2.6e+06 minimoTrenesAComprar
+
+     7 presupuesto  NL        -1e+06        .             -1e+06           -Inf          -Inf          +Inf
+                                           -.11111          +Inf         -1e+06        .11111       2.6e+06 minimoTrenesAComprar
+
+GLPK 4.52 - SENSITIVITY ANALYSIS REPORT                                                                         Page   2
+
+Problem:    parteb
+Objective:  z = 2600000 (MAXimum)
+
+   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+     1 trenes_a_comprar
+                    BS      40.00000        .             .            40.00000   -2500.00000       2.5e+06 presupuesto
+                                            .               +Inf       50.00000    2000.00000      2.68e+06 coberturaTrenes
+
+     2 kms_vias_a_construir
+                    BS    4000.00000        .             .        -48000.00000      -5.00000      2.58e+06 coberturaTrenes
+                                            .               +Inf     4000.00000       6.25000     2.625e+06 viasCubiertas
+
+     3 trenes_totales
+                    BS    1040.00000    2000.00000        .          1040.00000    -500.00000        .      viasCubiertas
+                                            .               +Inf     1050.00000    4000.00000      4.68e+06 coberturaTrenes
+
+     4 kms_vias_totales
+                    BS   52000.00000        .             .         48000.00000      -5.00000      2.34e+06 coberturaTrenes
+                                            .               +Inf    52000.00000       6.25000     2.925e+06 viasCubiertas
+
+     5 kms_vias_cubiertas
+                    BS   52000.00000      10.00000        .         48000.00000       5.00000      2.34e+06 coberturaTrenes
+                                            .               +Inf    52000.00000          +Inf          +Inf
+
+End of report
