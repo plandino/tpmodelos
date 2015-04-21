@@ -2,6 +2,7 @@
 set SECTORES;
 set CONFLICTOS;
 
+
 #Variables:
 #Yi, bivalente que vale 1 si tengo el apoyo del sector i
 var Y{i in SECTORES} >= 0, binary;
@@ -16,8 +17,10 @@ var Yv{i in SECTORES} >=0, binary;
 #Yci vale 1 si estoy a favor de la ley de importaciones, 	0 si estoy en contra de la ley de importaciones
 var Yc{i in CONFLICTOS} >=0, binary;
 
+
 #Funcional:
 maximize z: sum{i in SECTORES} Y[i];
+
 
 #Restricciones:
 #Solo se puede otorgar la vicepresidencia a un sector
@@ -44,6 +47,7 @@ s.t. apoyoHistoricosMenor: (Y['CH'] - Yv['CH']) <= Yc['H'] + Yc['D'] + (1 - Yc['
 s.t. apoyoHistoricosMayor: Yc['H'] + Yc['D'] + (1 - Yc['I']) <= 3*Y['CH'];
 
 solve;
+
 
 #Data segment
 data;
