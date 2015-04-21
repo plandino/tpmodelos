@@ -26,7 +26,7 @@ maximize z: sum{i in SECTORES} Y[i];
 
 # Restricciones:
 # Solo se puede otorgar la vicepresidencia a un sector
-s.t. vicepresidencia: sum{i in SECTORES} Yv[i] <= 1;
+s.t. vicepresidencia: sum{i in SECTORES} Yv[i] = 1;
 
 # Si se le da la vicepresidencia a un sector, si o si tengo su apoyo
 s.t. apoyoVicepresidencia{i in SECTORES}: Y[i] >= Yv[i];
@@ -49,7 +49,7 @@ s.t. apoyoSindicatosMenor: 2*(Y['S'] - Yv['S']) <= Yc['H'] + (1 - Yc['I']);
 s.t. apoyoSindicatosMayor: Yc['H'] + (1 - Yc['I']) <= Y['S'] + 1;
 
 # Se debe obtener el apoyo de los 4 sectores
-s.t. apoyoCuatroSectores: sum{i in SECTORES} Y[i] = 4;
+s.t. apoyoCuatroSectores: sum{i in SECTORES} Y[i] = 3;
 
 solve;
 
