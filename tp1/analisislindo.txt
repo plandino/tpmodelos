@@ -1,0 +1,47 @@
+﻿ LP OPTIMUM FOUND AT STEP      4
+
+        OBJECTIVE FUNCTION VALUE
+
+        1)      2600000.
+
+  VARIABLE        VALUE          REDUCED COST
+     TRTOT      1040.000000          0.000000
+      KMVC     52000.000000          0.000000
+    TRACOM        40.000000          0.000000
+      KMVT     52000.000000          0.000000
+    VICONS      4000.000000          0.000000
+      TRAC        40.000000          0.000000
+
+
+       ROW   SLACK OR SURPLUS     DUAL PRICES
+        2)         0.000000          0.000000
+        3)         0.000000         -5.555555
+        4)         0.000000         -4.444445
+        5)         0.000000          5.555555
+        6)         0.000000       2222.222168
+        7)         0.000000          0.111111
+
+ NO. ITERATIONS=       4
+
+
+ RANGES IN WHICH THE BASIS IS UNCHANGED:
+
+                           OBJ COEFFICIENT RANGES
+ VARIABLE         CURRENT        ALLOWABLE        ALLOWABLE
+                   COEF          INCREASE         DECREASE
+    TRTOT     2000.000000      2000.000000      2499.999756
+     KMVC       10.000000         INFINITY         5.000000
+   TRACOM        0.000000         0.000000         INFINITY
+     KMVT        0.000000         6.250000         5.000000
+   VICONS        0.000000         6.250000         5.000000
+     TRAC        0.000000      2000.000000      2499.999756
+
+                           RIGHTHAND SIDE RANGES
+      ROW         CURRENT        ALLOWABLE        ALLOWABLE
+                    RHS          INCREASE         DECREASE
+        2       40.000000         INFINITY        40.000000
+        3        0.000000     18000.000000      4500.000000
+        4        0.000000      4500.000000     18000.000000
+        5    48000.000000      4500.000000     18000.000000
+        6     1000.000000       360.000000        90.000000
+        7  1000000.000000         INFINITY    900000.000000
