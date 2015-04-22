@@ -1,4 +1,4 @@
-#Conjuntos: Los sectores de los que se busca el apoyo y los conflictos en los cuales tomar una decision
+#Las constantes que uso en el modelo
 param COSTO_MIL_KM_VIAS;
 param COSTO_TREN;
 param DISTANCIA_TREN;
@@ -8,7 +8,6 @@ param BENEFICIO_TREN;
 param BENEFICIO_KM_VIA_CUBIERTA;
 param PRESUPUESTO;
 
-
 #Variables:
 var trenes_a_comprar >= 0;
 var kms_vias_a_construir >=0;
@@ -16,10 +15,8 @@ var trenes_totales >= 0;
 var kms_vias_totales >=0;
 var kms_vias_cubiertas >=0;
 
-
 #Funcional:
 maximize z: (BENEFICIO_TREN * trenes_totales) + (BENEFICIO_KM_VIA_CUBIERTA * kms_vias_cubiertas);
-
 
 #Restricciones:
 #Debo comprar como mínimo 40 trenes
@@ -41,7 +38,6 @@ s.t. trenesTotales: trenes_totales = trenes_a_comprar + TRENES_ACTUALES;
 s.t. presupuesto: PRESUPUESTO >= (trenes_a_comprar * COSTO_TREN) + (kms_vias_a_construir * (COSTO_MIL_KM_VIAS / 1000));
 
 solve;
-
 
 #Data segment
 data;
