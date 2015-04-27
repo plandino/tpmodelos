@@ -6,21 +6,21 @@ SUBJECT TO
 !Restricciones:
 
 !Debo comprar como mínimo 40 trenes
-trACom >= 40
+MINTR) trACom >= 40
 
 !Las vias totales deben ser más que las vias cubiertas
-kmVT - kmVC >= 0
+VIACUB) kmVT - kmVC >= 0
 
 !Cada tren puede cubrir como maximo 50 kms de vias
-50 trTot - kmVC >= 0
+COBTREN) 50 trTot - kmVC >= 0
 
 !Las vias totales son lo que construi mas lo que tenia construido
-kmVT - viCons = 48000
+VIASTOT) kmVT - viCons = 48000
 
 !Los trenes totales son los que ya tenia mas los que compre
-trTot - trACom = 1000
+TRENTOT) trTot - trACom = 1000
 
 !Los gastos de compras de trenes y construccion de vias no pueden exceder el presupuesto de 1000 millones
-20000 trACom + 50 viCons <= 1000000
+PRESUP) 20000 trACom + 50 viCons <= 1000000
 
 END
