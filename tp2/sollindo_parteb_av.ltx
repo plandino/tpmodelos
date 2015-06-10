@@ -1,0 +1,26 @@
+!Funcional:
+MAX 2000 trTot + 3800 trAV + 10 kmVC
+
+
+SUBJECT TO
+!Restricciones:
+
+!Debo comprar como mínimo 40 trenes
+MINTR) trACom + trAV >= 40
+
+!Las vias totales deben ser más que las vias cubiertas
+VIACUB) kmVT - kmVC >= 0
+
+!Cada tren puede cubrir como maximo 50 kms de vias
+COBTREN) 50 trTot + 100 trAV - kmVC >= 0
+
+!Las vias totales son lo que construi mas lo que tenia construido
+VIASTOT) kmVT - viCons = 48000
+
+!Los trenes totales son los que ya tenia mas los que compre
+TRENTOT) trTot - trACom = 1000
+
+!Los gastos de compras de trenes y construccion de vias no pueden exceder el presupuesto de 1000 millones
+PRESUP) 20000 trACom + 30000 trAV + 50 viCons <= 1000000
+
+END
