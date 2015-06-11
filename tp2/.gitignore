@@ -1,0 +1,10 @@
+/heuristica/Debug/
+
+#Project files
+*.project
+*.cproject
+
+/RemoteSystemsTempFiles
+/.metadata
+
+/heuristica/.metadata
