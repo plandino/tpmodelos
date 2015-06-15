@@ -14,20 +14,19 @@ var kms_vias_a_construir >=0;
 var trenes_totales >= 0;
 var kms_vias_totales >=0;
 var kms_vias_cubiertas >=0;
-var trenes_alta_velocidad >=0;
 
 #Funcional:
-maximize z: (BENEFICIO_TREN * trenes_totales) + (BENEFICIO_KM_VIA_CUBIERTA * kms_vias_cubiertas) + (BENEFICIO_TREN_AV * trenes_alta_velocidad);
+maximize z: (BENEFICIO_TREN * trenes_totales) + (BENEFICIO_KM_VIA_CUBIERTA * kms_vias_cubiertas);
 
 #Restricciones:
 #Debo comprar como mínimo 40 trenes
-s.t. minimoTrenesAComprar: trenes_a_comprar + trenes_alta_velocidad >= 40;
+s.t. minimoTrenesAComprar: trenes_a_comprar >= 40;
 
 #Las vias totales deben ser más que las vias cubiertas
 s.t. viasCubiertas: kms_vias_totales >= kms_vias_cubiertas;
 
 #Cada tren puede cubrir como maximo 50 kms de vias
-s.t. coberturaTrenes: (trenes_totales * DISTANCIA_TREN) + (trenes_alta_velocidad * DISTANCIA_TREN_AV) >= kms_vias_cubiertas;
+s.t. coberturaTrenes: (trenes_totales * DISTANCIA_TREN) >= kms_vias_cubiertas;
 
 #Las vias totales son lo que construi mas lo que tenia construido
 s.t. viasTotales: kms_vias_totales = kms_vias_a_construir + KMS_ACTUALES_VIAS;
@@ -52,8 +51,5 @@ param TRENES_ACTUALES := 1000;
 param BENEFICIO_TREN :=2000;
 param BENEFICIO_KM_VIA_CUBIERTA := 10;
 param PRESUPUESTO := 1000000;
-param DISTANCIA_TREN_AV = 100;
-param BENEFICIO_TREN_AV = 38000;
-param COSTO_TREN_AV = 30000;
 
 end;
