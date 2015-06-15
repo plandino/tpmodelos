@@ -112,7 +112,8 @@ void determinarSectorAResolver(const int CANTIDAD_CONFLICTOS, const int CANTIDAD
 	cout << "--------En esta iteracion voy a resolver el sector " << sectorAResolver << "--------" << endl;
 }
 
-vector<int> determinarOpcionesPosibles(vector< vector<int> >& opcionesPosturasSectorAResolver, vector<Sector*>& sectores, int sectorAResolver, const int CANTIDAD_CONFLICTOS, vector<int>& conflictos, int& opcionAResolver){
+vector<int> determinarOpcionesPosibles(vector< vector<int> >& opcionesPosturasSectorAResolver, vector<Sector*>& sectores, int sectorAResolver,
+		const int CANTIDAD_CONFLICTOS, vector<int>& conflictos, int& opcionAResolver){
 	int cantidadOpciones = opcionesPosturasSectorAResolver.size();
 
 	// Me fijo si con cuales opciones puedo obtener el apoyo primero que nada. Si hay 1 o no hay, no aplico el desempate.
@@ -158,12 +159,14 @@ void determinarOpcionAResolver(const int CANTIDAD_CONFLICTOS, vector< vector<int
 			for (int i = 0; i < CANTIDAD_SECTORES; i++) {
 				if (sectorAResolver == i) continue;
 				if ( find(opcionesPosibles.begin(), opcionesPosibles.end(), j) == opcionesPosibles.end() ) continue;
+				if (sectores[i]->sectorResuelto()) continue;
 				vector< vector<int> > opcionesPosturasSectorAComparar =	sectores[i]->getPosturasConflictos();
 				unsigned int cantidadDeOpcionesEnLasQueSePierdeElApoyo = 0;
 				for (unsigned int l = 0; l < opcionesPosturasSectorAComparar.size(); l++) {
 					bool hayIncompatibilidad = false;
 					for (int k = 0; k < CANTIDAD_CONFLICTOS; k++) {
-						if ((opcionesPosturasSectorAResolver[j][k] != opcionesPosturasSectorAComparar[l][k]) and (opcionesPosturasSectorAResolver[j][k] >= 0) and (opcionesPosturasSectorAComparar[l][k] >= 0)) {
+						if ((opcionesPosturasSectorAResolver[j][k] != opcionesPosturasSectorAComparar[l][k]) and (opcionesPosturasSectorAResolver[j][k] >= 0)
+								and (opcionesPosturasSectorAComparar[l][k] >= 0)) {
 							hayIncompatibilidad = true;
 						}
 					}
@@ -185,7 +188,8 @@ void determinarOpcionAResolver(const int CANTIDAD_CONFLICTOS, vector< vector<int
 	}
 }
 
-void resolverSector(int opcionAResolver, int sectorAResolver, vector< vector<int> >& opcionesPosturasSectorAResolver, const int CANTIDAD_CONFLICTOS, vector<int>& conflictos, vector<Sector*>& sectores) {
+void resolverSector(int opcionAResolver, int sectorAResolver, vector< vector<int> >& opcionesPosturasSectorAResolver, const int CANTIDAD_CONFLICTOS,
+		vector<int>& conflictos, vector<Sector*>& sectores) {
 	// Solo adopto una postura cuando puedo obtener su apoyo, sino no. Tampoco modifico ninguna postura que ya haya tomado.
 	if (opcionAResolver != -1) {
 		cout << "Para resolver a favor del sector " << sectorAResolver << " utilice la opcion " << opcionAResolver << endl << endl;
