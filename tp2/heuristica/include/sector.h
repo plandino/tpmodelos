@@ -9,7 +9,6 @@ using namespace std;
 class Sector{
 
 private:
-
 	// Este vector indica que postura desea para cada conflicto, si la postura es -1 indica que no le importa el conflicto
 	// Tengo varios opciones para ganar el apoyo del sector
 	vector<vector<int> > opcionesPosturasConflictos;
@@ -32,8 +31,6 @@ public:
 	void otorgarVicepresidencia();
 
 	vector<vector<int> > getPosturasConflictos();
-
-
 };
 
 #endif /* SECTOR_H_ */
