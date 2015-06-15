@@ -2,8 +2,6 @@
 #define SECTOR_H_
 
 #include <vector>
-#include <map>
-#include <utility>
 using namespace std;
 
 class Sector{
